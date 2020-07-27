@@ -5,24 +5,26 @@
     <meta name="viewport" content="width-device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <title>The weather here</title>
   </head>
   <body>
-    <a href="/"><h1>The weather here</h1></a>
-    <div>
-      <a href="/checkins">View checkins</a>
+    <div class="outer-container">
+      <div class="inner-container">
+        <h1 class="header">The weather here v0.3</h1>
+        <div id="result-container">
+          <span class="info-text">
+            Click on the "Check in!" button below to get the weather and air
+            quality data for your location.<br />
+            Please note that this app requires access to your location (GPS).
+          </span>
+        </div>
+        <button type="submit" id="checkin">Check in!</button>
+        <div>
+          <a href="/checkins">View checkins</a>
+        </div>
+      </div>
     </div>
-    <p>
-      The weather in <span id="city"></span> (<span id="lat"></span>&deg;,
-      <span id="lon"></span>&deg;) is <span id="description"></span> with a
-      temperature of <span id="temp"></span>&deg; C.<br />
-
-      The concentration of particulate matter (<span id="aq_parameter"></span>)
-      is <span id="aq_value"></span><span id="aq_units"></span>, as measured by
-      the <span id="aq_source"></span>, last read on <span id="aq_date"></span>.
-    </p>
-    <button type="submit" id="checkin">Check in!</button>
 
     <script src="sketch.js"></script>
   </body>
