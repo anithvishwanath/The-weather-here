@@ -8,10 +8,6 @@ button.addEventListener("click", async () => {
         lat = position.coords.latitude;
         lon = position.coords.longitude;
 
-        //console.log(latTemp);
-        document.getElementById("lat").textContent = lat.toFixed(2);
-        document.getElementById("lon").textContent = lon.toFixed(2);
-
         const api_url = `weather/${lat},${lon}`; //custom endpoint
         console.log(api_url);
         const response = await fetch(api_url);
@@ -23,20 +19,21 @@ button.addEventListener("click", async () => {
         captureDetails = new Date().toLocaleString();
         console.log(captureDetails);
 
-        document.getElementById("city").textContent = weather_details.name;
-        document.getElementById("description").textContent =
-          weather_details.weather[0].main;
-        document.getElementById("temp").textContent = weather_details.main.temp;
+        const result_container = document.createElement("div");
+        const result_text = document.createElement("p");
+        
+        result_text.textContent = `The weather in ${weather_details.name} (${lat.toFixed(2)}°,
+        ${lon.toFixed(2)}°) is ${weather_details.weather[0].main} with a
+        temperature of ${weather_details.main.temp}° C.
 
-        document.getElementById("aq_parameter").textContent = air.parameter;
-        document.getElementById("aq_source").textContent = air.sourceName;
-        document.getElementById("aq_value").textContent = air.value;
-        document.getElementById("aq_units").textContent = air.unit;
-        document.getElementById("aq_date").textContent = air.lastUpdated;
+        The concentration of particulate matter (${air.parameter}) is ${air.value}${air.unit}, as
+        measured by the ${air.sourceName}, last read on ${air.lastUpdated}.`;
+
+        result_container.append(result_text);
+        document.getElementById("result-container").append(result_container);
       } catch (error) {
         console.error(error);
         air = { value: -1 };
-        document.getElementById("temp").textContent = "NO READING";
       }
 
       /* Save it to the DB */
