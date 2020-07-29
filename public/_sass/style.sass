@@ -6,51 +6,56 @@ h1, h2, h3, h4, h5, h6
     margin-bottom: 0
 
 body
-    background: $app-background
+    background: lightblue
     font-family: $font
     color: $base-text-color
     font-size: $base-font-size
     line-height: $base-line-height
+    height: 100%
 
 .outer-container
-    max-width: 590px
     width: 100%
-    background: $base-surface
-    @include box-shadow(2px, 4px, 25px, 0px, rgba(0, 0, 0, .15))
-    border-radius: 16px
-    margin: 0 auto
-    padding: 16px
+    height: 100vh
+    display: flex
+    align-items: center
+    justify-content: center 
 
 .inner-container
+    max-width: 590px
+    background: $base-surface
+    @include box-shadow(2px, 4px, 25px, 0px, rgba(0, 0, 0, .16))
+    border-radius: 16px
+    margin: 0 auto
+    padding: 24px
     display: flex
     flex-direction: column
     justify-content: center
-    align-items: flex-start
+    align-items: center
 
 /* header */
 .header 
-    font-size: 32px
+    font-size: 28px
     font-weight: bold
     text-transform: uppercase
     line-height: $base-line-height
 
 .ver-num
     font-weight: regular
-    font-size: 24px
+    font-size: 20px
     font-weight: 600
     line-height: $base-line-height
     color: $base-text-color-light
+
+.info-text
+    font-size: 12px
+    color: $base-text-color-light
+    display: block
+    line-height: $base-line-height
+    margin-top: $spacing-unit - 5px
+    margin-bottom: 20px
 
 /* Map */
 #checkinMap
     width: 500px
     height: 500px
-    margin-top: 10px
-    margin: 0 auto
-
-.info-text
-    font-size: 12px
-    color: #4a4a4a
-    display: block
-    line-height: $base-line-height
-    justify-content: left
+    margin-top: $spacing-unit
