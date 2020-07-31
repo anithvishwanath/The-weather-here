@@ -1,12 +1,15 @@
 @import "_variables"
 @import "_mixins"
 
+html 
+    box-sizing: border-box
+
 h1, h2, h3, h4, h5, h6
     margin-top: 0
     margin-bottom: 0
 
 body
-    background: lightblue
+    background: #433c5e
     font-family: $font
     color: $base-text-color
     font-size: $base-font-size
@@ -51,8 +54,31 @@ body
     color: $base-text-color-light
     display: block
     line-height: $base-line-height
-    margin-top: $spacing-unit - 5px
-    margin-bottom: 20px
+    margin-top: 5px
+    text-align: center
+
+.checkin-btn
+    display: flex
+    flex-direction: row
+    padding: 16px 32px
+    margin: 16px
+    cursor: pointer
+    border: 2px solid #fefa99
+    border-radius: 5px
+    text-align: center
+    text-transform: uppercase
+    line-height: $base-line-height
+    font-family: $font
+    font-weight: 700
+    font-size: 20px
+    color: #fefa99
+    background: #433c5e
+    @include box-shadow(0px, 3px, 0px, 0px, rgba(212, 205, 27, 1))
+    
+    &:active
+        transform: translateY(1.5px)
+        -moz-transform: translateY(1.5px)
+        webkit-transform: translateY(1.5px)
 
 /* Map */
 #checkinMap
